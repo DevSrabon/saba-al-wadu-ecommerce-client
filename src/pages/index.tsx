@@ -49,7 +49,7 @@ export default function Home() {
         /> */}
         {/* <PopularProductFeed variant="alpine" /> final */}
         {/* <BestSellerProductFeed /> */}
-        <FreshVegetablesProductFeed />
+        {/* <FreshVegetablesProductFeed /> */}
         {/* <ChipsProductFeed /> */}
       </Container>
       {/* <CollectionGrid

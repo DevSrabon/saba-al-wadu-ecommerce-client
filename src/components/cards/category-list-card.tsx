@@ -13,6 +13,7 @@ interface Props {
 }
 
 const CategoryListCard: React.FC<Props> = ({ category, className, href }) => {
+  console.log(category);
   const { cate_name_en, cate_image } = category;
   const { t } = useTranslation('common');
   return (
@@ -27,8 +28,13 @@ const CategoryListCard: React.FC<Props> = ({ category, className, href }) => {
           <div className={cn('2xl:w-12 3xl:w-auto 2xl:h-12 3xl:h-auto')}>
             <Image
               loader={categoryImageLoader}
-              src={cate_image ?? '/assets/placeholder/category-small.svg'}
-              alt={cate_name_en || t('text-category-thumbnail')}
+              src={
+                cate_image
+                  ? cate_image
+                  : '/assets/placeholder/category-small.svg'
+              }
+              alt={''}
+              // alt={cate_name_en || t('text-category-thumbnail')}
               width={40}
               height={40}
               className="aspect-square"

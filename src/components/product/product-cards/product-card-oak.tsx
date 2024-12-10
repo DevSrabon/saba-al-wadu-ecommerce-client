@@ -11,6 +11,7 @@ import { useCart } from '@contexts/cart/cart.context';
 import { useTranslation } from 'next-i18next';
 import { productPlaceholder } from '@assets/placeholders';
 import dynamic from 'next/dynamic';
+import { productImageLoader } from '@utils/image-loader';
 const AddToCart = dynamic(() => import('@components/product/add-to-cart'), {
   ssr: false,
 });
@@ -60,7 +61,7 @@ function RenderPopupOrAddToCart({ props }: { props: Object }) {
   return <AddToCart data={data} variant="venus" />;
 }
 const ProductCardOak: React.FC<ProductProps> = ({ product, className }) => {
-  const { name, image, unit, product_type } = product ?? {};
+  const { p_name_en, images, unit, product_type } = product ?? {};
   const { openModal } = useModalAction();
   const { t } = useTranslation('common');
   const { price, basePrice, discount } = usePrice({
@@ -87,13 +88,14 @@ const ProductCardOak: React.FC<ProductProps> = ({ product, className }) => {
         className
       )}
       // onClick={handlePopupView}
-      title={name}
+      title={p_name_en}
     >
       <div className="relative shrink-0">
         <div className="flex overflow-hidden max-w-[230px] mx-auto transition duration-200 ease-in-out transform group-hover:scale-105 relative">
           <Image
-            src={image?.thumbnail ?? productPlaceholder}
-            alt={name || 'Product Image'}
+           loader={productImageLoader}
+            src={ images[0]}
+            alt={p_name_en || 'Product Image'}
             width={230}
             height={200}
             quality={100}
@@ -122,7 +124,7 @@ const ProductCardOak: React.FC<ProductProps> = ({ product, className }) => {
           )}
         </div>
         <h2 className="text-brand-dark text-13px sm:text-sm lg:text-15px leading-5 sm:leading-6 mb-1.5">
-          {name}
+          {p_name_en}
         </h2>
         <div className="mt-auto text-13px sm:text-sm">{unit}</div>
         <RenderPopupOrAddToCart props={{ data: product }} />

@@ -15,9 +15,9 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'pksfdigital.blob.core.windows.net',
+        hostname: 'm360ict-ecommerce.s3.ap-south-1.amazonaws.com',
         port: '',
-        pathname: '/pksfdigital/uploads/**',
+        pathname: '**',
       },
     ],
   },

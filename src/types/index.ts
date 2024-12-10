@@ -150,11 +150,12 @@ export type Attachment = {
 
 export interface IProducts {
   id: number;
+  p_name_en: string;
   name: string;
   price: number;
   organic: number;
   image?: Attachment;
-  images: IProductImage[];
+  images: string[];
   sale_price: number;
   details: null | string;
   unit: null | string;

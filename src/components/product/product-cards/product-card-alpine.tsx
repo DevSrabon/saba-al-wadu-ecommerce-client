@@ -54,10 +54,10 @@ function RenderPopupOrAddToCart({ product }: { product: IProducts }) {
 }
 const ProductCardAlpine: React.FC<ProductProps> = ({ product, className }) => {
   const {
-    name,
+    p_name_en,
     unit,
     image,
-    images = [] as IProductImage[],
+    images = [] as string[],
   } = product || ({} as IProducts);
   const { openModal } = useModalAction();
   const { t } = useTranslation('common');
@@ -85,15 +85,15 @@ const ProductCardAlpine: React.FC<ProductProps> = ({ product, className }) => {
         className
       )}
       onClick={handlePopupView}
-      title={name}
+      title={p_name_en}
     >
       <div className="relative shrink-0">
         <div className="flex overflow-hidden max-w-[230px] mx-auto transition duration-200 ease-in-out transform group-hover:scale-105 relative">
           {images?.length ? (
             <Image
               loader={productImageLoader}
-              src={images[0]?.image_name! || productPlaceholder}
-              alt={name || 'Product Image'}
+              src={images[0] ?? ''}
+              alt={p_name_en || 'Product Image'}
               width={230}
               height={200}
               quality={100}
@@ -102,8 +102,9 @@ const ProductCardAlpine: React.FC<ProductProps> = ({ product, className }) => {
             />
           ) : (
             <Image
-              src={image?.thumbnail ?? productPlaceholder}
-              alt={name || 'Product Image'}
+              loader={productImageLoader}
+              src={images[0] ?? ''}
+              alt={p_name_en || 'Product Image'}
               width={230}
               height={200}
               quality={100}
@@ -137,7 +138,7 @@ const ProductCardAlpine: React.FC<ProductProps> = ({ product, className }) => {
           )}
         </div>
         <h2 className="text-brand-dark text-13px sm:text-sm lg:text-15px leading-5 sm:leading-6 mb-1.5">
-          {name}
+          {p_name_en}
         </h2>
         <div className="mt-auto text-13px sm:text-sm">{unit}</div>
       </div>

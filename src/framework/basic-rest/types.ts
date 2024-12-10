@@ -78,6 +78,8 @@ export type Tag = {
 };
 export type Product = {
   id: number | string;
+  p_name_en: string;
+  images: string[];
   name: string;
   slug: string;
   price: number;
@@ -148,6 +150,7 @@ export interface RegisterUserInput {
   name: string;
   email: string;
   password: string;
+  type: string;
 }
 export interface LoginUserInput {
   email: string;

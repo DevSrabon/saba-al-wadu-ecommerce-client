@@ -1,0 +1,380 @@
+[
+  {
+    "id": "pbsg13",
+    "name": "অর্গানিক চিড়া",
+    "slug": "fresh-organic-chira",
+    "description": "অর্গানিক চিড়া",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/চিড়া.webp",
+      "original": "/assets/images/products/চিড়া.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/চিড়া.webp",
+        "original": "/assets/images/products/চিড়া.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/চিড়া.webp",
+        "original": "/assets/images/products/চিড়া.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/চিড়া.webp",
+        "original": "/assets/images/products/চিড়া.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 70.00,
+    "sale_price": 70.00,
+    "unit": "1 Bag",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg14",
+    "name": "অর্গানিক ধুনে",
+    "slug": "fresh-organic-dune",
+    "description": "অর্গানিক ধুনে",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/ধুনে.webp",
+      "original": "/assets/images/products/ধুনে.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/ধুনে.webp",
+        "original": "/assets/images/products/ধুনে.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/ধুনে.webp",
+        "original": "/assets/images/products/ধুনে.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/ধুনে.webp",
+        "original": "/assets/images/products/ধুনে.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 80.00,
+    "sale_price": 80.00,
+    "unit": "1 Bag",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg15",
+    "name": "অর্গানিক পোলাও চাল",
+    "slug": "fresh-organic-polao-chal",
+    "description": "অর্গানিক পোলাও চাল",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/পোলাও-চাল.webp",
+      "original": "/assets/images/products/পোলাও-চাল.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/পোলাও-চাল.webp",
+        "original": "/assets/images/products/পোলাও-চাল.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/পোলাও-চাল.webp",
+        "original": "/assets/images/products/পোলাও-চাল.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/পোলাও-চাল.webp",
+        "original": "/assets/images/products/পোলাও-চাল.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 80.00,
+    "sale_price": 80.00,
+    "unit": "500 Gram",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg16",
+    "name": "অর্গানিক বাসমতি চালের আটা",
+    "slug": "fresh-organic-polao-chal",
+    "description": "অর্গানিক বাসমতি চালের আটা",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/বাসমতি-চালের-আটা.webp",
+      "original": "/assets/images/products/বাসমতি-চালের-আটা.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/বাসমতি-চালের-আটা.webp",
+        "original": "/assets/images/products/বাসমতি-চালের-আটা.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/বাসমতি-চালের-আটা.webp",
+        "original": "/assets/images/products/বাসমতি-চালের-আটা.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/বাসমতি-চালের-আটা.webp",
+        "original": "/assets/images/products/বাসমতি-চালের-আটা.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 120.00,
+    "sale_price": 120.00,
+    "unit": "400 Gram",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg17",
+    "name": "অর্গানিক মসুর ডাল লাল",
+    "slug": "fresh-organic-mosur-dal-lal",
+    "description": "অর্গানিক মসুর ডাল লাল",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/মসুর-ডাল-লাল.webp",
+      "original": "/assets/images/products/মসুর-ডাল-লাল.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/মসুর-ডাল-লাল.webp",
+        "original": "/assets/images/products/মসুর-ডাল-লাল.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/মসুর-ডাল-লাল.webp",
+        "original": "/assets/images/products/মসুর-ডাল-লাল.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/মসুর-ডাল-লাল.webp",
+        "original": "/assets/images/products/মসুর-ডাল-লাল.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 80.00,
+    "sale_price": 80.00,
+    "unit": "500 Gram",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg18",
+    "name": "অর্গানিক ব্ল্যাকস্ট্রাপ মোলাসেস",
+    "slug": "fresh-organic-blackstop-mollases",
+    "description": "অর্গানিক ব্ল্যাকস্ট্রাপ মোলাসেস",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/ব্ল্যাকস্ট্রাপ-মোলাসেস.webp",
+      "original": "/assets/images/products/ব্ল্যাকস্ট্রাপ-মোলাসেস.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/ব্ল্যাকস্ট্রাপ-মোলাসেস.webp",
+        "original": "/assets/images/products/ব্ল্যাকস্ট্রাপ-মোলাসেস.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/ব্ল্যাকস্ট্রাপ-মোলাসেস.webp",
+        "original": "/assets/images/products/ব্ল্যাকস্ট্রাপ-মোলাসেস.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/ব্ল্যাকস্ট্রাপ-মোলাসেস.webp",
+        "original": "/assets/images/products/ব্ল্যাকস্ট্রাপ-মোলাসেস.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 350.00,
+    "sale_price": 350.00,
+    "unit": "500 Gram",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg19",
+    "name": "অর্গানিক মটর ডাল",
+    "slug": "fresh-organic-motor-dal",
+    "description": "অর্গানিক মটর ডাল",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/মটর-ডাল.webp",
+      "original": "/assets/images/products/মটর-ডাল.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/মটর-ডাল.webp",
+        "original": "/assets/images/products/মটর-ডাল.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/মটর-ডাল.webp",
+        "original": "/assets/images/products/মটর-ডাল.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/মটর-ডাল.webp",
+        "original": "/assets/images/products/মটর-ডাল.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 70.00,
+    "sale_price": 70.00,
+    "unit": "500 Gram",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  }
+]

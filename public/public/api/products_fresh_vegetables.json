@@ -1,0 +1,321 @@
+[
+  {
+    "id": "pbsg1",
+    "name": "অর্গানিক বাজরা",
+    "slug": "fresh-green-leaf-lettuce",
+    "description": "অর্গানিক বাজরা",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/400-price.webp",
+      "original": "/assets/images/products/400-price.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/400-price.webp",
+        "original": "/assets/images/products/400-price.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/400-price.webp",
+        "original": "/assets/images/products/400-price.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/400-price.webp",
+        "original": "/assets/images/products/400-price.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 400.00,
+    "sale_price": 400.00,
+    "unit": "500 Gram",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg3",
+    "name": "অর্গানিক লাল চাল",
+    "slug": "organic-lal-chal",
+    "description": "অর্গানিক লাল চাল হল একটি ধরণের চাল যা উৎপাদিত হয় অর্গানিক কৃষি পদ্ধতিতে। অর্গানিক কৃষি পদ্ধতি হল যে পদ্ধতিতে কৃষকরা বিষজীবী সামগ্রী ব্যবহার করে মাটি ও উদ্ভিদের জন্য সুরক্ষিত ও সম্পূর্ণ প্রাকৃতিক পদার্থসমূহের ব্যবহার করে প্রকৃতির সাথে সামঞ্জস্যপূর্ণ উৎপাদন করে। অর্গানিক লাল চাল বিভিন্ন অর্থের হতে পারে। এটি সম্পূর্ণভাবে প্রাকৃতিক সম্পদে উৎপাদিত হলেও অন্যান্য উৎপাদন পদ্ধতিতে ওই রকম চালকে লাল বানানো হতে পারে। এটি উত্পাদিত হলে চালের সুস্বাদু আরোগ্যকর ও আকর্ষণীয় রঙ পায় যা পণ্যের বিক্রয় এবং চাল ভিত্তিক খাবারের উপভোগে আরও আকর্ষণ তৈরি করে। অর্গানিক লাল চালের মান বধয়ে যায় পরম্পর জমে আসা জৈব সামগ্রী, যেমন জৈব সার, মাটির মাই",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/লাল-চাউল.webp",
+      "original": "/assets/images/products/লাল-চাউল.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/লাল-চাউল.webp",
+        "original": "/assets/images/products/লাল-চাউল.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/লাল-চাউল.webp",
+        "original": "/assets/images/products/লাল-চাউল.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/লাল-চাউল.webp",
+        "original": "/assets/images/products/লাল-চাউল.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 120.00,
+    "sale_price": 120.00,
+    "unit": "1 Kg",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg2",
+    "name": "অর্গানিক তিসি",
+    "slug": "tisi-bij",
+    "description": "সুন্দর ও সুস্থ থাকতে চাইলে অর্গানিক তিসির বীজ ও তিসির তেল সেবন করুন।",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/টিসি.webp",
+      "original": "/assets/images/products/টিসি.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/টিসি.webp",
+        "original": "/assets/images/products/টিসি.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/টিসি.webp",
+        "original": "/assets/images/products/টিসি.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/টিসি.webp",
+        "original": "/assets/images/products/টিসি.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 100.00,
+    "sale_price": 100.00,
+    "unit": "100 Gram",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg4",
+    "name": "অর্গানিক মারিঙ্গা ফুল প্যাক",
+    "slug": "organic-marigga-pack",
+    "description": "অর্গানিক মারিঙ্গা ফুল প্যাক",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/মারিঙ্গা-ফুল-প্যাক.webp",
+      "original": "/assets/images/products/মারিঙ্গা-ফুল-প্যাক.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/মারিঙ্গা-ফুল-প্যাক.webp",
+        "original": "/assets/images/products/মারিঙ্গা-ফুল-প্যাক.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/মারিঙ্গা-ফুল-প্যাক.webp",
+        "original": "/assets/images/products/মারিঙ্গা-ফুল-প্যাক.webp"
+      }
+    ],
+    "quantity": 170,
+    "price": 50.00,
+    "sale_price": null,
+    "unit": "1 Bag",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg5",
+    "name": "অর্গানিক মসুর ডালের বেসন",
+    "slug": "organic-mosur-beson",
+    "description": "অর্গানিক মারিঙ্গা ফুল প্যাক",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/মসুর-ডালের-বেসন.webp",
+      "original": "/assets/images/products/মসুর-ডালের-বেসন.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/মসুর-ডালের-বেসন.webp",
+        "original": "/assets/images/products/মসুর-ডালের-বেসন.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/মসুর-ডালের-বেসন.webp",
+        "original": "/assets/images/products/মসুর-ডালের-বেসন.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/মসুর-ডালের-বেসন.webp",
+        "original": "/assets/images/products/মসুর-ডালের-বেসন.webp"
+      }
+    ],
+    "quantity": 270,
+    "price": 80.00,
+    "sale_price": 80.00,
+    "unit": "500 Gram",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg7",
+    "name": "অর্গানিক বাদাম",
+    "slug": "fresh-green-leaf-lettuce",
+    "description": "অর্গানিক বাদাম একটি নিরাপদ ও স্বাস্থ্যকর বাদাম পণ্য। এটি বাদামের উৎপাদন পদ্ধতিতে কীটনাশক বা সার ব্যবহার না করে বাড়তি পরিমাণে প্রতিষ্ঠানিত পদ্ধতিতে উৎপাদিত হয়। অর্গানিক কীটনাশকমুক্ত উৎপাদন পদ্ধতি ব্যবহার করে বাদামের বাড়তি উৎপাদন এবং পরিবেশের সংরক্ষণের দিকে কেন্দ্রিত। অর্গানিক বাদামের কুকুর্মের মাধ্যমে বাড়তি উৎপাদন করা হয়, যা পেড়ে আছে ওয়াড়া পদ্ধতিতে উৎপাদিত খাদ্যের সাথে পুষ্টিগত থাকে। এই পদ্ধতি ব্যবহার করে উচ্চ মানের বাদাম পাওয়া যায়, যা শক্তিশালী প্রোটিন, ভিটামিন, মিনারেল এবং অন্যান্য পুষ্টিগুলির উচ্চ উৎস হিসাবে পরিচিত।",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/বাদাম.webp",
+      "original": "/assets/images/products/বাদাম.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/বাদাম.webp",
+        "original": "/assets/images/products/বাদাম.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/বাদাম.webp",
+        "original": "/assets/images/products/বাদাম.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/বাদাম.webp",
+        "original": "/assets/images/products/বাদাম.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 80.00,
+    "sale_price": 80.00,
+    "unit": "500 Gram",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  }
+]

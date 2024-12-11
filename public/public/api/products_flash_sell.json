@@ -1,0 +1,110 @@
+[
+  {
+    "id": "pbsg1",
+    "name": "অর্গানিক বাজরা",
+    "slug": "fresh-green-leaf-lettuce",
+    "description": "অর্গানিক বাজরা",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/400-price.webp",
+      "original": "/assets/images/products/400-price.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/400-price.webp",
+        "original": "/assets/images/products/400-price.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/400-price.webp",
+        "original": "/assets/images/products/400-price.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/400-price.webp",
+        "original": "/assets/images/products/400-price.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 400.00,
+    "sale_price": 400.00,
+    "unit": "500 Gram",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  },
+  {
+    "id": "pbsg3",
+    "name": "অর্গানিক লাল চাল",
+    "slug": "organic-lal-chal",
+    "description": "অর্গানিক লাল চাল হল একটি ধরণের চাল যা উৎপাদিত হয় অর্গানিক কৃষি পদ্ধতিতে। অর্গানিক কৃষি পদ্ধতি হল যে পদ্ধতিতে কৃষকরা বিষজীবী সামগ্রী ব্যবহার করে মাটি ও উদ্ভিদের জন্য সুরক্ষিত ও সম্পূর্ণ প্রাকৃতিক পদার্থসমূহের ব্যবহার করে প্রকৃতির সাথে সামঞ্জস্যপূর্ণ উৎপাদন করে। অর্গানিক লাল চাল বিভিন্ন অর্থের হতে পারে। এটি সম্পূর্ণভাবে প্রাকৃতিক সম্পদে উৎপাদিত হলেও অন্যান্য উৎপাদন পদ্ধতিতে ওই রকম চালকে লাল বানানো হতে পারে। এটি উত্পাদিত হলে চালের সুস্বাদু আরোগ্যকর ও আকর্ষণীয় রঙ পায় যা পণ্যের বিক্রয় এবং চাল ভিত্তিক খাবারের উপভোগে আরও আকর্ষণ তৈরি করে। অর্গানিক লাল চালের মান বধয়ে যায় পরম্পর জমে আসা জৈব সামগ্রী, যেমন জৈব সার, মাটির মাই",
+    "image": {
+      "id": 1,
+      "thumbnail": "/assets/images/products/লাল-চাউল.webp",
+      "original": "/assets/images/products/লাল-চাউল.webp"
+    },
+    "gallery": [
+      {
+        "id": 1,
+        "thumbnail": "/assets/images/products/লাল-চাউল.webp",
+        "original": "/assets/images/products/লাল-চাউল.webp"
+      },
+      {
+        "id": 2,
+        "thumbnail": "/assets/images/products/লাল-চাউল.webp",
+        "original": "/assets/images/products/লাল-চাউল.webp"
+      },
+      {
+        "id": 3,
+        "thumbnail": "/assets/images/products/লাল-চাউল.webp",
+        "original": "/assets/images/products/লাল-চাউল.webp"
+      }
+    ],
+    "quantity": 70,
+    "price": 120.00,
+    "sale_price": 120.00,
+    "unit": "1 Kg",
+    "tag": [
+      {
+        "id": 1,
+        "name": "Fresh food",
+        "slug": "fresh-food"
+      },
+      {
+        "id": 2,
+        "name": "Organic",
+        "slug": "organic"
+      },
+      {
+        "id": 3,
+        "name": "Cilantro",
+        "slug": "cilantro"
+      },
+      {
+        "id": 4,
+        "name": "Dry Food",
+        "slug": "dry-food"
+      }
+    ]
+  }
+]

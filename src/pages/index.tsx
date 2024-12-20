@@ -31,7 +31,7 @@ export default function Home() {
 
       <Container>
         <HeroCarouselBlock heroBanner={heroBanner} />
-        <CategoryGridListBlock />
+        {/* <CategoryGridListBlock /> */}
         {/* <BundleGrid
           className="mb-12 lg:mb-14 xl:mb-16 2xl:mb-20"
           data={bundle}

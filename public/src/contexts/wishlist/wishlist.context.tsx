@@ -1,9 +1,9 @@
 import React from 'react';
 import { useLocalStorage } from '@utils/use-local-storage';
 import { State, initialState, wishlistReducer } from './wishlist.reducer';
-import { IProducts } from 'src/types';
+import { IProductResponse, IProducts } from 'src/types';
 interface WishlistProviderState extends State {
-  handleWishlistClick: (item: IProducts) => void;
+  handleWishlistClick: any;
   isProductWishlist: (id: IProducts['id']) => any | undefined;
   resetWishlist: () => void;
 }

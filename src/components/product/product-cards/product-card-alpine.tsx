@@ -88,14 +88,14 @@ const ProductCardAlpine: React.FC<ProductProps> = ({ product, className }) => {
       title={p_name_en}
     >
       <div className="relative shrink-0">
-        <div className="flex overflow-hidden max-w-[230px] mx-auto transition duration-200 ease-in-out transform group-hover:scale-105 relative">
+        <div className="flex overflow-hidden max-w-[330px] mx-auto transition duration-200 ease-in-out transform group-hover:scale-105 relative">
           {images?.length ? (
             <Image
               loader={productImageLoader}
               src={images[0] ?? ''}
               alt={p_name_en || 'Product Image'}
-              width={230}
-              height={200}
+              width={330}
+              height={500}
               quality={100}
               priority
               className="object-contain h-48 w-50 bg-fill-thumbnail"
@@ -105,8 +105,8 @@ const ProductCardAlpine: React.FC<ProductProps> = ({ product, className }) => {
               loader={productImageLoader}
               src={images[0] ?? ''}
               alt={p_name_en || 'Product Image'}
-              width={230}
-              height={200}
+              width={330}
+              height={500}
               quality={100}
               priority
               className="object-cover bg-fill-thumbnail"

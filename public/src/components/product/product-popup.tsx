@@ -74,6 +74,8 @@ export default function ProductPopup() {
     baseAmount: data.price,
     currencyCode: 'BDT',
   });
+
+  console.log(data);
   const {
     slug,
     images,
@@ -151,7 +153,7 @@ export default function ProductPopup() {
         <div className="px-4 pt-4 md:px-6 lg:p-8 2xl:p-10 mb-9 lg:mb-2 md:pt-7 2xl:pt-10">
           <div className="items-start justify-between lg:flex">
             <div className="items-center justify-center mb-6 overflow-hidden xl:flex md:mb-8 lg:mb-0">
-              {images?.length ? (
+              {/* {images?.length ? (
                 <ThumbnailCarousel gallery={images} />
               ) : (
                 <div className="flex items-center justify-center w-auto">
@@ -163,7 +165,7 @@ export default function ProductPopup() {
                     style={{ width: 'auto' }}
                   />
                 </div>
-              )}
+              )} */}
             </div>
 
             <div className="shrink-0 flex flex-col lg:ltr:pl-5 xl:ltr:pl-8 2xl:ltr:pl-10 lg:w-[430px] xl:w-[470px] 2xl:w-[480px]">
@@ -311,7 +313,7 @@ export default function ProductPopup() {
                   </div>
                 </div>
               </div>
-              {tags && (
+              {/* {tags && (
                 <ul className="pt-5 xl:pt-6">
                   <li className="relative inline-flex items-center justify-center text-sm md:text-15px text-brand-dark text-opacity-80 ltr:mr-2 top-1">
                     <LabelIcon className="ltr:mr-2" /> {t('text-tags')}:
@@ -322,7 +324,7 @@ export default function ProductPopup() {
                     </li>
                   ))}
                 </ul>
-              )}
+              )} */}
 
               <div className="pt-6 xl:pt-8">
                 <Heading className="mb-3 lg:mb-3.5">

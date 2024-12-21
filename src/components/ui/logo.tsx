@@ -14,15 +14,19 @@ const Logo: React.FC<React.AnchorHTMLAttributes<{}>> = ({
       className={cn(' focus:outline-none w-auto md:w-32 lg:w-72', className)}
       {...props}
     >
-      <p className="text-2xlfont-semibold text-brand-dark text-center">
+      {/* <p className="text-2xlfont-semibold text-brand-dark text-center">
         Saba al wadu
-      </p>
-      {/* <Image
-        src={siteSettings.logo.url}
-        alt={siteSettings.logo.alt}
-        priority
-        loading="eager"
-      /> */}
+      </p> */}
+      <div className="text-center">
+        {' '}
+        <Image
+          height={80}
+          src={siteSettings.logo.url}
+          alt={siteSettings.logo.alt}
+          priority
+          loading="eager"
+        />
+      </div>
     </Link>
   );
 };

@@ -149,20 +149,72 @@ export type Attachment = {
 };
 
 export interface IProducts {
-  id: number;
+  p_id: number;
   p_name_en: string;
-  name: string;
-  price: number;
-  organic: number;
-  image?: Attachment;
-  images: string[];
-  sale_price: number;
-  details: null | string;
-  unit: null | string;
-  slug: string;
+  p_name_ar: string;
+  p_slug: string;
+  p_tags: string;
+  p_details_en: string;
+  p_details_ar: string;
+  p_status: number;
+  p_created_at: Date;
+  sku: string;
+  barcode: string;
+  qr_code: string;
+  is_featured: number;
+  stock_alert: number;
+  avg_rating: string;
+  offer_details: null;
+  sizes: Size[];
   available_stock: number;
-  tags: string;
-  attribute: IAttributes[];
+  base_price: string;
+  base_special_price: string;
+  images: string[];
+  colors: Color[];
+  variants: Variant[];
+  categories: Category[];
+  p_images: Image[];
+}
+
+export interface Category {
+  cate_id: number;
+  cate_slug: string;
+  cate_name_ar: string;
+  cate_name_en: string;
+}
+
+export interface Color {
+  color_id: number;
+  color_code: string;
+  color_images: Image[];
+  color_name_ar: string;
+  color_name_en: string;
+}
+
+export interface Image {
+  image: string;
+  image_id: number;
+}
+
+export interface Size {
+  size: string;
+  height: string;
+  weight: string;
+  details: string;
+  size_id: number;
+}
+
+export interface Variant {
+  discount: number;
+  fabric_id: number;
+  variant_id: number;
+  discount_type: string;
+  special_price: string;
+  variant_price: number;
+  fabric_name_ar: string;
+  fabric_name_en: string;
+  fabric_details_ar: string;
+  fabric_details_en: string;
 }
 
 export interface IProductsQueryKeys {

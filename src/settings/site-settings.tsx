@@ -1,11 +1,11 @@
 import { USFlag } from '@components/icons/language/USFlag';
 import { BDTFlag } from '@components/icons/language/BDTFlag';
-import siteLogo from 'public/assets/images/me_logo.webp';
+
+import siteLogo from '../../public/public/assets/images/logo.jpeg';
 
 export const siteSettings = {
   name: 'Saba al wadu',
-  description:
-    '',
+  description: '',
   // author: {
   //   name: 'M360 ICT.',
   //   websiteUrl: 'https://m360ict.com/',

@@ -70,14 +70,17 @@ export default function ProductPopup() {
   const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
   const [shareButtonStatus, setShareButtonStatus] = useState<boolean>(false);
   const { price, basePrice, discount } = usePrice({
-    amount: data.sale_price ? data.sale_price : data.price,
-    baseAmount: data.price,
+    amount: data?.base_special_price
+      ? Number(data?.base_special_price)
+      : Number(data?.base_price),
+    baseAmount: Number(data?.base_price),
     currencyCode: 'BDT',
   });
   const {
     slug,
     images,
-    name,
+    p_name_en,
+    p_name_ar,
     unit,
     attribute,
     details,
@@ -144,6 +147,7 @@ export default function ProductPopup() {
 
   useEffect(() => setSelectedQuantity(1), [data.id]);
 
+  console.log({ images });
   return (
     <div className="md:w-[600px] lg:w-[940px] xl:w-[1180px] 2xl:w-[1360px] mx-auto p-1 lg:p-0 xl:p-3 bg-brand-light rounded-md">
       <CloseButton onClick={closeModal} />
@@ -157,7 +161,7 @@ export default function ProductPopup() {
                 <div className="flex items-center justify-center w-auto">
                   <Image
                     src={productGalleryPlaceholder}
-                    alt={name!}
+                    alt={p_name_en!}
                     width={650}
                     height={590}
                     style={{ width: 'auto' }}
@@ -174,7 +178,7 @@ export default function ProductPopup() {
                   role="button"
                 >
                   <h2 className="text-lg font-medium transition-colors duration-300 text-brand-dark md:text-xl xl:text-2xl hover:text-brand">
-                    {name}
+                    {p_name_en}
                   </h2>
                 </div>
                 {unit && (
@@ -212,6 +216,8 @@ export default function ProductPopup() {
                 variations={variations}
                 attributes={attributes}
                 setAttributes={setAttributes}
+                colors={data?.colors}
+                sizes={data?.sizes}
               />
 
               <div className="pb-2">

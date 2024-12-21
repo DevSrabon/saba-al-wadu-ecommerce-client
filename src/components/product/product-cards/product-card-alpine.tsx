@@ -21,7 +21,7 @@ interface ProductProps {
 }
 function RenderPopupOrAddToCart({ product }: { product: IProducts }) {
   const { t } = useTranslation('common');
-  const { id, available_stock } = product || ({} as IProducts);
+  const { available_stock } = product || ({} as IProducts);
   const { width } = useWindowSize();
   const { openModal } = useModalAction();
   // const { isInCart, isInStock } = useCart()
@@ -38,7 +38,7 @@ function RenderPopupOrAddToCart({ product }: { product: IProducts }) {
       </span>
     );
   }
-  if (product?.attribute?.length > 0) {
+  if (product?.sizes?.length > 0) {
     return (
       <button
         className="inline-flex items-center justify-center w-8 h-8 text-4xl rounded-full bg-brand lg:w-10 lg:h-10 text-brand-light focus:outline-none focus-visible:outline-none"
@@ -53,17 +53,14 @@ function RenderPopupOrAddToCart({ product }: { product: IProducts }) {
   return <AddToCart data={product} variant="mercury" />;
 }
 const ProductCardAlpine: React.FC<ProductProps> = ({ product, className }) => {
-  const {
-    p_name_en,
-    unit,
-    image,
-    images = [] as string[],
-  } = product || ({} as IProducts);
+  const { p_name_en, available_stock, images } = product || ({} as IProducts);
   const { openModal } = useModalAction();
   const { t } = useTranslation('common');
   const { price, basePrice, discount } = usePrice({
-    amount: product?.sale_price ? product?.sale_price : product?.price,
-    baseAmount: product?.price,
+    amount: product?.base_special_price
+      ? Number(product?.base_special_price)
+      : Number(product?.base_price),
+    baseAmount: Number(product?.base_price),
     currencyCode: 'BDT',
   });
   // const { price: minPrice } = usePrice({
@@ -114,11 +111,6 @@ const ProductCardAlpine: React.FC<ProductProps> = ({ product, className }) => {
           )}
         </div>
         <div className="w-full h-full absolute top-0 pt-2.5 md:pt-3.5 px-3 md:px-4 lg:px-[18px] z-10 -mx-0.5 sm:-mx-1">
-          {discount && (
-            <span className="text-[11px] md:text-xs font-bold text-brand-dark uppercase inline-block bg-brand-yellow rounded-full px-2.5 pt-1 pb-[3px] mx-0.5 sm:mx-1">
-              {t('text-on-organic')}
-            </span>
-          )}
           <div className={`block product-count-button-position`}>
             <RenderPopupOrAddToCart product={product} />
           </div>
@@ -128,19 +120,19 @@ const ProductCardAlpine: React.FC<ProductProps> = ({ product, className }) => {
       <div className="flex flex-col px-3 md:px-4 lg:px-[18px] pb-5 lg:pb-6 lg:pt-1.5 h-full">
         <div className="mb-1 lg:mb-1.5 -mx-1">
           <span className="inline-block mx-1 text-sm font-semibold sm:text-15px lg:text-base text-brand-dark">
-            {price}
+            {price || 0}
             {/* {product_type === 'variable' ? `${minPrice} - ${maxPrice}` : price} */}
           </span>
           {basePrice && (
             <del className="mx-1 text-sm text-brand-dark text-opacity-70">
-              {basePrice}
+              {basePrice || 0}
             </del>
           )}
         </div>
         <h2 className="text-brand-dark text-13px sm:text-sm lg:text-15px leading-5 sm:leading-6 mb-1.5">
           {p_name_en}
         </h2>
-        <div className="mt-auto text-13px sm:text-sm">{unit}</div>
+        {/* <div className="mt-auto text-13px sm:text-sm">{available_stock}</div> */}
       </div>
     </article>
   );

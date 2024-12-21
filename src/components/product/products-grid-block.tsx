@@ -32,6 +32,7 @@ const ProductsGridBlock: React.FC<ProductsProps> = ({
   uniqueKey,
   variant = 'alpine',
 }) => {
+  console.log({ products });
   return (
     <div className={`${className}`}>
       <SectionHeader
@@ -62,19 +63,12 @@ const ProductsGridBlock: React.FC<ProductsProps> = ({
             />
           ))
         ) : (
-          products?.map((product: any) =>
-            variant === 'oak' ? (
-              <ProductCardOak
-                key={`${uniqueKey}-${product.id}`}
-                product={product}
-              />
-            ) : (
-              <ProductCardAlpine
-                key={`${uniqueKey}-${product.id}`}
-                product={product}
-              />
-            )
-          )
+          products?.map((product: any) => (
+            <ProductCardAlpine
+              key={`${uniqueKey}-${product.id}`}
+              product={product}
+            />
+          ))
         )}
       </div>
     </div>

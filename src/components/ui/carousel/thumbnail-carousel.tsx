@@ -61,14 +61,14 @@ const ThumbnailCarousel: React.FC<Props> = ({
           }}
           {...swiperParams}
         >
-          {gallery?.map((item: any) => (
+          {gallery?.map((item: any, index) => (
             <SwiperSlide
-              key={`product-gallery-${item.image_id}`}
+              key={`product-gallery-${index}`}
               className="flex items-center justify-center"
             >
               <Image
                 loader={productImageLoader}
-                src={item?.image_name ?? productGalleryPlaceholder}
+                src={item ?? productGalleryPlaceholder}
                 alt={`Product gallery ${item.image_name}`}
                 width={650}
                 height={590}
@@ -106,18 +106,18 @@ const ThumbnailCarousel: React.FC<Props> = ({
           observeParents={true}
           breakpoints={galleryCarouselBreakpoints}
         >
-          {gallery?.map((item: any) => (
+          {gallery?.map((item: any, index) => (
             <SwiperSlide
-              key={`product-thumb-gallery-${item.image_id}`}
+              key={`product-thumb-gallery-${index}`}
               className="flex items-center justify-center overflow-hidden transition border rounded cursor-pointer border-border-base hover:opacity-75"
             >
               <Image
                 loader={productImageLoader}
-                src={item?.image_name ?? productGalleryPlaceholder}
-                alt={`Product thumb gallery ${item.image_name}`}
-                width={170}
+                src={item ?? productGalleryPlaceholder}
+                alt={`Product thumb gallery ${item}`}
+                width={200}
                 height={170}
-                style={{ width: 'auto' }}
+                style={{ width: '100%' }}
               />
             </SwiperSlide>
           ))}

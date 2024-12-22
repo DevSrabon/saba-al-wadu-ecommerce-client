@@ -56,8 +56,30 @@ const ProductAttributes: React.FC<Props> = ({
         </div>
       ))}
 
-      {colors?.map((color) => color.color_name_en)}
-
+      <div>
+        {' '}
+        <h3 className="text-sm font-medium mb-2">Color: {selectedSize}</h3>
+        <div className="flex flex-wrap gap-2">
+          {colors.map((color, index) => (
+            <button
+              key={index}
+              onClick={() => setSelectedSize(color?.color_name_en)}
+              className={`
+                px-2 py-[5px] text-sm font-medium
+                ${
+                  selectedSize === color?.color_name_en
+                    ? 'bg-black text-white'
+                    : 'bg-white text-black border border-black-200'
+                }
+                hover:bg-gray-100 transition-colors
+                }
+              `}
+            >
+              {color?.color_name_en}
+            </button>
+          ))}
+        </div>
+      </div>
       <div>
         <h3 className="text-sm font-medium mb-2">Size: {selectedSize}</h3>
         <div className="flex flex-wrap gap-2">
@@ -66,7 +88,7 @@ const ProductAttributes: React.FC<Props> = ({
               key={index}
               onClick={() => setSelectedSize(size?.size)}
               className={`
-                px-4 py-2 text-sm font-medium
+                px-2 py-[5px] text-sm font-medium
                 ${
                   selectedSize === size?.size
                     ? 'bg-black text-white'

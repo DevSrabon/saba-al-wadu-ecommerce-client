@@ -12,7 +12,7 @@ import { Status } from '@components/ui/status';
 
 const columns = [
   {
-    title: 'Order Number',
+    title: 'Order N0',
     dataIndex: 'id',
     key: 'id',
     className: 'id-cell',
@@ -32,18 +32,25 @@ const columns = [
     key: 'order_status',
     width: 145,
     render: function status(item: IOrders) {
-      return (
-        <Status item={item.order_status !== '0' ? 'Pending' : 'Delivered'} />
-      );
+      return <Status item={item.order_status} />;
+    },
+  },
+  {
+    title: 'Payment Status',
+    key: 'payment_status',
+    width: 145,
+    render: function status(item: IOrders) {
+      return <Status item={item.payment_status ? 'Paid' : 'Unpaid'} />;
     },
   },
   {
     title: 'Total Price',
     key: 'grand_total',
+    dataIndex: 'grand_total',
     width: 130,
-    render: (items: IOrders) => {
-      return <TotalPrice items={items} />;
-    },
+    // render: (curr: string) => {
+    //   return <TotalPrice amount={curr} />;
+    // },
   },
   {
     title: 'Actions',

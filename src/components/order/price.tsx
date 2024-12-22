@@ -2,9 +2,9 @@ import usePrice from '@framework/product/use-price';
 import { calculateTotal } from '@contexts/cart/cart.utils';
 import { IOrders } from 'src/types';
 
-export const TotalPrice: React.FC<{ items?: IOrders }> = ({ items }) => {
+export const TotalPrice: React.FC<{ amount?: string }> = ({ amount }) => {
   const { price } = usePrice({
-    amount: items?.grand_total!,
+    amount: Number(amount),
     currencyCode: 'BDT',
   });
   return <span className="total_price">{price}</span>;

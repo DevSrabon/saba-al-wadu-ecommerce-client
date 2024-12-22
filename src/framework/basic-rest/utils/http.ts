@@ -1,7 +1,7 @@
 import { getToken } from '@rest/client/get-token';
 import axios from 'axios';
 
-const http = axios.create({
+export const http = axios.create({
   baseURL: process.env.NEXT_PUBLIC_REST_API_ENDPOINT_LOCAL,
   timeout: 30000,
   headers: {

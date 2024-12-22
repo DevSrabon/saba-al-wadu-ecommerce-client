@@ -37,7 +37,7 @@ export const API_ENDPOINTS = {
   POPCORN_JERKY_PRODUCTS: '/products_popcorn_jerky.json',
   FRESH_VEGETABLES_PRODUCTS: '/products_fresh_vegetables.json',
   SEARCH: '/search.json',
-  ORDERS: '/orders.json',
+  ORDERS: '/ecomm/order',
   ORDER: '/order.json',
   ORDER_STATUS: '/order-status.json',
   ADDRESS: '/address.json',

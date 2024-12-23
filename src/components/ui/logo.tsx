@@ -17,7 +17,7 @@ const Logo: React.FC<React.AnchorHTMLAttributes<{}>> = ({
       {/* <p className="text-2xlfont-semibold text-brand-dark text-center">
         Saba al wadu
       </p> */}
-      <div className="text-center">
+      <div className="flex justify-center items-center">
         {' '}
         <Image
           height={80}

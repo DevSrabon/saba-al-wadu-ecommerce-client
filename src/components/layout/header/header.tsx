@@ -60,7 +60,7 @@ const Header: React.FC = () => {
         />
         {/* End of Mobile search */}
         <Container className="flex items-center justify-between h-16 py-3 top-bar lg:h-auto">
-          <Logo className="logo -mt-1.5 md:-mt-1 " />
+          <Logo className="logo -mt-1.5 md:-mt-1  hidden md:block lg:block" />
           {/* End of logo */}
 
           <Search

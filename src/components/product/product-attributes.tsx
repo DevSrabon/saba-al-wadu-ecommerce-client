@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { useState } from 'react';
-import { Color, Size } from 'src/types';
+import { Color, Size, Variant } from 'src/types';
 
 interface Props {
   className?: string;
@@ -10,6 +10,7 @@ interface Props {
   isOutOfStock: boolean;
   colors: Color[];
   sizes: Size[];
+  variants: Variant[];
 }
 
 const ProductAttributes: React.FC<Props> = ({
@@ -20,9 +21,14 @@ const ProductAttributes: React.FC<Props> = ({
   isOutOfStock,
   colors,
   sizes,
+  variants,
 }) => {
   if (!variations) return null;
-  const [selectedSize, setSelectedSize] = useState('');
+  const [pAttributes, setPAttributes] = useState({
+    color: '',
+    size: '',
+    variant: '',
+  });
   return (
     <>
       {Object.keys(variations).map((variationName, index) => (
@@ -58,16 +64,25 @@ const ProductAttributes: React.FC<Props> = ({
 
       <div>
         {' '}
-        <h3 className="text-sm font-medium mb-2">Color: {selectedSize}</h3>
+        <h3 className="text-sm font-medium mb-2">
+          Color: {pAttributes?.color}
+        </h3>
         <div className="flex flex-wrap gap-2">
           {colors.map((color, index) => (
             <button
               key={index}
-              onClick={() => setSelectedSize(color?.color_name_en)}
+              onClick={() => {
+                setPAttributes({ ...pAttributes, color: color?.color_name_en });
+                isOutOfStock &&
+                  setAttributes((prev: any) => ({
+                    ...prev,
+                    color: color.color_id,
+                  }));
+              }}
               className={`
-                px-2 py-[5px] text-sm font-medium
+                px-3 py-[5px] text-sm font-medium
                 ${
-                  selectedSize === color?.color_name_en
+                  pAttributes.color === color?.color_name_en
                     ? 'bg-black text-white'
                     : 'bg-white text-black border border-black-200'
                 }
@@ -80,17 +95,24 @@ const ProductAttributes: React.FC<Props> = ({
           ))}
         </div>
       </div>
-      <div>
-        <h3 className="text-sm font-medium mb-2">Size: {selectedSize}</h3>
+      <div className="mt-2">
+        <h3 className="text-sm font-medium mb-2">Size: {pAttributes?.size}</h3>
         <div className="flex flex-wrap gap-2">
           {sizes.map((size, index) => (
             <button
               key={index}
-              onClick={() => setSelectedSize(size?.size)}
+              onClick={() => {
+                setPAttributes({ ...pAttributes, size: size?.size });
+                isOutOfStock &&
+                  setAttributes((prev: any) => ({
+                    ...prev,
+                    size: size.size_id,
+                  }));
+              }}
               className={`
-                px-2 py-[5px] text-sm font-medium
+                px-3 py-[5px] text-sm font-medium
                 ${
-                  selectedSize === size?.size
+                  pAttributes?.size === size?.size
                     ? 'bg-black text-white'
                     : 'bg-white text-black border border-black-200'
                 }
@@ -99,6 +121,41 @@ const ProductAttributes: React.FC<Props> = ({
               `}
             >
               {size?.size}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="mt-2">
+        <h3 className="text-sm font-medium mb-2">
+          Variant: {pAttributes?.variant}
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          {variants?.map((variant, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setPAttributes({
+                  ...pAttributes,
+                  variant: variant?.fabric_name_en,
+                });
+                isOutOfStock &&
+                  setAttributes((prev: any) => ({
+                    ...prev,
+                    variant: variant.fabric_id,
+                  }));
+              }}
+              className={`
+                px-3 py-[5px] text-sm font-medium
+                ${
+                  pAttributes?.variant === variant?.fabric_name_en
+                    ? 'bg-black text-white'
+                    : 'bg-white text-black border border-black-200'
+                }
+                hover:bg-gray-100 transition-colors
+              
+              `}
+            >
+              {variant?.fabric_name_en}
             </button>
           ))}
         </div>

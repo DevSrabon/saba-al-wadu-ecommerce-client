@@ -83,7 +83,7 @@ const Header: React.FC = () => {
           </div>
           {/* End of Category */}
 
-          <Logo className="logo -mt-1.5 md:-mt-1 md:mx-auto ltr:pl-3 md:ltr:pl-0 lg:mx-0" />
+          <Logo className="logo -mt-1.5 md:-mt-1 md:mx-auto ltr:pl-3 md:ltr:pl-0 lg:mx-0 hidden md:block lg:block" />
           {/* End of logo */}
 
           <Search
@@ -120,7 +120,7 @@ const Header: React.FC = () => {
 
         <div className="hidden navbar lg:block bg-brand-light">
           <Container className="h-20 flex justify-between items-center py-2.5">
-            {/* <Logo className="w-0 transition-all duration-200 ease-in-out opacity-0 navbar-logo" /> */}
+            <Logo className="w-0 transition-all duration-200 ease-in-out opacity-0 navbar-logo" />
             {/* End of logo */}
             <div className="relative categories-header-button ltr:mr-8 shrink-0">
               <button

@@ -141,7 +141,7 @@ export default function MobileMenu() {
       <div className="flex flex-col justify-between w-full h-full">
         <div className="w-full border-b border-border-base flex justify-between items-center relative ltr:pl-5 md:ltr:pl-7 shrink-0 py-0.5">
           <div role="button" onClick={closeSidebar} className="inline-flex">
-            <Logo />
+            {/* <Logo className="hidden md:block" /> */}
           </div>
 
           <button
@@ -156,7 +156,7 @@ export default function MobileMenu() {
         <Scrollbar className="flex-grow mb-auto menu-scrollbar">
           <div className="flex flex-col px-0 py-6 text-brand-dark h-[calc(100vh_-_150px)]">
             <ul className="mobile-menu">
-              {site_header.menu.map((menu, index) => {
+              {site_header.menu.map((menu: any, index) => {
                 const dept: number = 1;
                 const menuName: string = `sidebar-menu-${dept}-${index}`;
 
@@ -164,7 +164,7 @@ export default function MobileMenu() {
                   <ListMenu
                     dept={dept}
                     data={menu}
-                    hasSubMenu={menu.subMenu}
+                    hasSubMenu={menu?.subMenu}
                     menuName={menuName}
                     key={menuName}
                     menuIndex={index}

@@ -14,39 +14,55 @@ interface Item {
   [key: string]: unknown;
 }
 interface Variation {
-  av_id: number[]
+  av_id: number[];
 }
 type ICartItemReturnType = {
   id: string | number;
-  name: string,
   slug: string;
   unit: unknown;
   image: string;
   stock: number;
   price: number;
   variationId?: number[];
-}
+  p_name_en: string;
+  base_price: string;
+};
 
-export function generateCartItem(item: any, variation: number[]): ICartItemReturnType {
-  const { id, name, slug, images, price, sale_price, available_stock, unit } = item;
+export function generateCartItem(
+  item: any,
+  variation: number[]
+): ICartItemReturnType {
+  const {
+    id,
+    p_name_en,
+    slug,
+    images,
+    price,
+    sale_price,
+    available_stock,
+    base_price,
+    unit,
+  } = item;
   if (!isEmpty(variation)) {
     return {
       id,
-      name,
+      p_name_en,
       slug,
       unit,
+      base_price,
       stock: available_stock,
       price: sale_price ? sale_price : price,
-      image: images?.length ? images[0]?.image_name : "messi-1684753607065.jpg",
+      image: images?.length ? images[0] : 'messi-1684753607065.jpg',
       variationId: variation,
     };
   }
   return {
     id,
-    name,
+    p_name_en,
     slug,
     unit,
-    image: images?.length ? images[0]?.image_name : "messi-1684753607065.jpg",
+    base_price,
+    image: images?.length ? images[0] : 'messi-1684753607065.jpg',
     stock: available_stock,
     price: sale_price ? sale_price : price,
   };

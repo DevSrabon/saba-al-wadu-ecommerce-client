@@ -33,6 +33,7 @@ import { productGalleryPlaceholder } from '@assets/placeholders';
 import { getVariations } from '@rest/client/get-variations';
 import { useWishlist } from '@contexts/wishlist/wishlist.context';
 import { useUI } from '@contexts/ui.context';
+import { useAddCardOrFavorite } from 'src/framework/addCardOrFavorite';
 
 const breakpoints = {
   '1536': {
@@ -66,7 +67,7 @@ export default function ProductPopup() {
   const { isAuthorized } = useUI();
   const { openModal } = useModalAction();
   const [selectedQuantity, setSelectedQuantity] = useState(1);
-  const [attributes, setAttributes] = useState<{ [key: number]: number }>({});
+  const [attributes, setAttributes] = useState<{ [key: string]: number }>({});
   const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
   const [shareButtonStatus, setShareButtonStatus] = useState<boolean>(false);
   const { price, basePrice, discount } = usePrice({
@@ -147,7 +148,24 @@ export default function ProductPopup() {
 
   useEffect(() => setSelectedQuantity(1), [data.id]);
 
-  console.log({ images });
+  console.log(item, selectedQuantity, attributes);
+
+  const { mutate, isLoading, formError } = useAddCardOrFavorite();
+
+  const submitBackend = () => {
+    const cartData = {
+      p_id: item.id,
+      v_id: attributes.variant,
+      p_color_id: attributes.color,
+      size_id: attributes.size,
+      quantity: selectedQuantity,
+      type: 'cart',
+    };
+
+    console.log({ cartData });
+
+    mutate(cartData);
+  };
   return (
     <div className="md:w-[600px] lg:w-[940px] xl:w-[1180px] 2xl:w-[1360px] mx-auto p-1 lg:p-0 xl:p-3 bg-brand-light rounded-md">
       <CloseButton onClick={closeModal} />
@@ -218,6 +236,7 @@ export default function ProductPopup() {
                 setAttributes={setAttributes}
                 colors={data?.colors}
                 sizes={data?.sizes}
+                variants={data?.variants}
               />
 
               <div className="pb-2">
@@ -267,11 +286,14 @@ export default function ProductPopup() {
                   }
                 />
                 <Button
-                  onClick={addToCart}
+                  onClick={() => {
+                    // addToCart();
+                    submitBackend();
+                  }}
                   className="w-full px-1.5"
                   title={!isSelected ? 'Select product attribute' : ''}
                   disabled={!isSelected}
-                  loading={addToCartLoader}
+                  loading={isLoading}
                 >
                   <CartIcon color="#ffffff" className="ltr:mr-3" />
                   {t('text-add-to-cart')}
@@ -280,7 +302,7 @@ export default function ProductPopup() {
                   <Button
                     variant="border"
                     onClick={() =>
-                      isAuthorized ? addToWishlist() : openModal('LOGIN_VIEW')
+                      isAuthorized ? submitBackend() : openModal('LOGIN_VIEW')
                     }
                     // loading={addToWishlistLoader}
                     className={`group hover:text-brand ${

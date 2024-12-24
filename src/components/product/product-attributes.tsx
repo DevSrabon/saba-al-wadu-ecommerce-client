@@ -80,7 +80,7 @@ const ProductAttributes: React.FC<Props> = ({
                   }));
               }}
               className={`
-                px-3 py-[5px] text-sm font-medium
+                px-3 py-[5px] text-sm font-medium rounded-2xl
                 ${
                   pAttributes.color === color?.color_name_en
                     ? 'bg-black text-white'
@@ -110,7 +110,7 @@ const ProductAttributes: React.FC<Props> = ({
                   }));
               }}
               className={`
-                px-3 py-[5px] text-sm font-medium
+                px-3 py-[5px] text-sm font-medium rounded-2xl
                 ${
                   pAttributes?.size === size?.size
                     ? 'bg-black text-white'
@@ -145,7 +145,7 @@ const ProductAttributes: React.FC<Props> = ({
                   }));
               }}
               className={`
-                px-3 py-[5px] text-sm font-medium
+                px-3 py-[5px] text-sm font-medium rounded-2xl
                 ${
                   pAttributes?.variant === variant?.fabric_name_en
                     ? 'bg-black text-white'

@@ -53,7 +53,7 @@ export function useProduct({ slug }: { slug: string }) {
     client.products.get({ slug })
   );
   return {
-    product: data?.data ?? ({} as ISingleProductType),
+    product: data?.data ?? ({} as IProducts),
     isLoading,
     error,
   };

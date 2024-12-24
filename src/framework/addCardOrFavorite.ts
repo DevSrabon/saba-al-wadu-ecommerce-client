@@ -3,7 +3,6 @@ import { API_ENDPOINTS } from '@rest/client/api-endpoints';
 import { HttpClient } from '@rest/client/http';
 import { useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
-import { IAddAddress } from 'src/types';
 
 const postFunction = (input: any) =>
   HttpClient.post<any>(API_ENDPOINTS.CARTORFAVORITE, input);

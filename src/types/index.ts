@@ -329,7 +329,7 @@ export interface ISingleProductType {
   attribute: IAttributes[];
 }
 export interface ISingleProductResponseType extends IResponse {
-  data?: ISingleProductType;
+  data?: IProducts;
 }
 
 export interface IReviewImages {

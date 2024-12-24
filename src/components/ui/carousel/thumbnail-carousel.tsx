@@ -69,7 +69,7 @@ const ThumbnailCarousel: React.FC<Props> = ({
               <Image
                 loader={productImageLoader}
                 src={item ?? productGalleryPlaceholder}
-                alt={`Product gallery ${item.image_name}`}
+                alt={`Product gallery ${item}`}
                 width={650}
                 height={590}
                 className="rounded-lg"

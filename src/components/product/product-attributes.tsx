@@ -68,7 +68,7 @@ const ProductAttributes: React.FC<Props> = ({
           Color: {pAttributes?.color}
         </h3>
         <div className="flex flex-wrap gap-2">
-          {colors.map((color, index) => (
+          {colors?.map((color, index) => (
             <button
               key={index}
               onClick={() => {
@@ -98,7 +98,7 @@ const ProductAttributes: React.FC<Props> = ({
       <div className="mt-2">
         <h3 className="text-sm font-medium mb-2">Size: {pAttributes?.size}</h3>
         <div className="flex flex-wrap gap-2">
-          {sizes.map((size, index) => (
+          {sizes?.map((size, index) => (
             <button
               key={index}
               onClick={() => {

@@ -41,23 +41,26 @@ const ProductSingleDetails = () => {
   const { isAuthorized } = useUI();
   const { openModal } = useModalAction();
   const [selectedQuantity, setSelectedQuantity] = useState(1);
-  const [attributes, setAttributes] = useState<{}>({});
+  const [attributes, setAttributes] = useState<{ [key: string]: number }>({});
   const [quantity, setQuantity] = useState(1);
   const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
   const [shareButtonStatus, setShareButtonStatus] = useState<boolean>(false);
-  const productUrl = `${process.env.NEXT_PUBLIC_WEBSITE_URL}${ROUTES.PRODUCT}/${product.slug}`;
+  const productUrl = `${process.env.NEXT_PUBLIC_WEBSITE_URL}${ROUTES.PRODUCT}/${product.p_slug}`;
   const { price, basePrice, discount } = usePrice(
     product && {
-      amount: product.sale_price ? product.sale_price : product.price,
-      baseAmount: product.price,
+      amount: product.base_price
+        ? Number(product.base_price)
+        : Number(product.base_special_price),
+      baseAmount: Number(product.base_price),
       currencyCode: 'BDT',
     }
   );
+
   const handleChange = () => {
     setShareButtonStatus(!shareButtonStatus);
   };
   if (isLoading) return <p>Loading...</p>;
-  const variations = getVariations(product?.attribute);
+  const variations = getVariations(attributes);
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
@@ -100,7 +103,7 @@ const ProductSingleDetails = () => {
       draggable: true,
     });
   }
-  const isFavorite = isProductWishlist(product.id);
+  const isFavorite = isProductWishlist(product.p_id);
   function addToWishlist() {
     // to show btn feedback while product wishlist
     handleWishlistClick(product);
@@ -133,7 +136,7 @@ const ProductSingleDetails = () => {
             <div className="flex items-center justify-center w-auto">
               <Image
                 src={'/product-placeholder.svg'}
-                alt={product?.name!}
+                alt={product?.p_name_en!}
                 width={900}
                 height={680}
                 style={{ width: 'auto' }}
@@ -146,12 +149,12 @@ const ProductSingleDetails = () => {
           <div className="pb-3 lg:pb-5">
             <div className="md:mb-2.5 block -mt-1.5">
               <h2 className="text-lg font-medium transition-colors duration-300 text-brand-dark md:text-xl xl:text-2xl">
-                {product?.name}
+                {product?.p_name_en}
               </h2>
             </div>
-            <div className="text-sm font-medium md:text-15px">
-              {product?.unit}
-            </div>
+            {/* <div className="text-sm font-medium md:text-15px">
+              {product?.stock_alert}
+            </div> */}
             {/* {product?.unit && isEmpty(variations) ? (
               <div className="text-sm font-medium md:text-15px">
                 {product?.unit}
@@ -186,11 +189,13 @@ const ProductSingleDetails = () => {
           {/* {Object.keys(variations).map((variation) => {
             return ( */}
           <ProductAttributes
-            // key={`popup-attribute-key${variation}`}
             isOutOfStock={isOutOfStock}
             variations={variations}
             attributes={attributes}
             setAttributes={setAttributes}
+            colors={product?.colors}
+            sizes={product?.sizes}
+            variants={product?.variants}
           />
           {/* );
           })} */}
@@ -294,12 +299,12 @@ const ProductSingleDetails = () => {
               </div>
             </div>
           </div>
-          {product?.tags && (
+          {product?.p_tags && (
             <ul className="pt-5 xl:pt-6">
               <li className="relative inline-flex items-center justify-center text-sm md:text-15px text-brand-dark text-opacity-80 ltr:mr-2 top-1">
                 <LabelIcon className="ltr:mr-2" /> {t('text-tags')}:
               </li>
-              {product?.tags?.split(' ').map((item: any, index: number) => (
+              {product?.p_tags?.split(' ').map((item: any, index: number) => (
                 <li className="inline-block p-[3px]" key={index}>
                   <TagLabel data={item} />
                 </li>

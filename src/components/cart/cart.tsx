@@ -12,15 +12,29 @@ import { useTranslation } from 'next-i18next';
 import Heading from '@components/ui/heading';
 import Text from '@components/ui/text';
 import DeleteIcon from '@components/icons/delete-icon';
+import { useCartProducts } from './api/cartApiEndpoints';
+import { useEffect, useState } from 'react';
+import { ICartProduct } from './types/cartTypes';
 
 export default function Cart() {
   const { t } = useTranslation('common');
   const { closeDrawer } = useUI();
+
+  const { cartData, isLoading } = useCartProducts('cart');
   const { items, total, isEmpty, resetCart } = useCart();
   const { price: cartTotal } = usePrice({
     amount: total,
     currencyCode: 'BDT',
   });
+
+  const [cartProducts, setCartProducts] = useState<ICartProduct[]>([]);
+  useEffect(() => {
+    if (cartData?.length) {
+      setCartProducts(cartData);
+    }
+  }, [cartData]);
+
+  console.log(cartProducts);
   return (
     <div className="flex flex-col justify-between w-full h-full">
       <div className="relative flex items-center justify-between w-full border-b ltr:pl-5 md:ltr:pl-7 border-border-base">
@@ -47,11 +61,16 @@ export default function Cart() {
           </button>
         </div>
       </div>
-      {!isEmpty ? (
+      {cartProducts?.length ? (
         <Scrollbar className="flex-grow w-full cart-scrollbar ">
           <div className="w-full px-5 md:px-7 h-[calc(100vh_-_300px)]">
-            {items?.map((item) => (
-              <CartItem item={item} key={item.id} />
+            {cartProducts?.map((item) => (
+              <CartItem
+                item={item}
+                key={item.id}
+                cartProducts={cartProducts}
+                setCartProducts={setCartProducts}
+              />
             ))}
           </div>
         </Scrollbar>

@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import Button from '@components/ui/button';
 import Counter from '@components/ui/counter';
@@ -9,7 +10,6 @@ import { useCart } from '@contexts/cart/cart.context';
 import { generateCartItem } from '@utils/generate-cart-item';
 import ProductAttributes from '@components/product/product-attributes';
 import isEmpty from 'lodash/isEmpty';
-import { toast } from 'react-toastify';
 import ThumbnailCarousel from '@components/ui/carousel/thumbnail-carousel';
 import { useTranslation } from 'next-i18next';
 import Image from '@components/ui/image';
@@ -35,6 +35,7 @@ const ProductSingleDetails = () => {
   } = router;
   const { width } = useWindowSize();
   const { product, isLoading } = useProduct({ slug: slug as string });
+    const { mutate, isLoading: submitLoading } = useAddCardOrFavorite();
   // const { data, isLoading } = useProductQuery(slug as string);
   const { addItemToCart, isInCart, getItemFromCart, isInStock, items } =
     useCart();
@@ -61,6 +62,7 @@ const ProductSingleDetails = () => {
     setShareButtonStatus(!shareButtonStatus);
   };
   if (isLoading) return <p>Loading...</p>;
+
   const variations = getVariations(product?.attribute);
   const variation = Object.values(attributes).sort() as number[];
 
@@ -84,54 +86,19 @@ const ProductSingleDetails = () => {
   const item = generateCartItem(product, variation);
   const outOfStock = isInCart(item.id) && !isInStock(item.id);
   const isOutOfStock = product.available_stock > 0 && !outOfStock;
-  function addToCart() {
-    if (!isSelected) return;
-    // to show btn feedback while product carting
-    setAddToCartLoader(true);
-    setTimeout(() => {
-      setAddToCartLoader(false);
-    }, 1500);
 
-    const item = generateCartItem(product, variation);
-    addItemToCart(item, quantity);
-    toast('Added to the bag', {
-      progressClassName: 'fancy-progress-bar',
-      position: width! > 768 ? 'bottom-right' : 'top-right',
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  }
   const isFavorite = isProductWishlist(product.p_id);
-  function addToWishlist() {
-    // to show btn feedback while product wishlist
-    handleWishlistClick(product);
-    const toastStatus: string =
-      isFavorite === true
-        ? t('text-remove-favorite')
-        : t('text-added-favorite');
-    toast(toastStatus, {
-      progressClassName: 'fancy-progress-bar',
-      position: width! > 768 ? 'bottom-right' : 'top-right',
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  }
-  const { mutate, isLoading: submitLoading } = useAddCardOrFavorite();
 
-  const submitBackend = () => {
+
+
+  const submitBackend = (type: string) => {
     const cartData = {
       p_id: product?.p_id,
       v_id: attributes.variant,
       p_color_id: attributes.color,
       size_id: attributes.size,
       quantity: selectedQuantity,
-      type: 'cart',
+      type: type,
     };
 
     console.log({ cartData });
@@ -271,7 +238,7 @@ const ProductSingleDetails = () => {
             <Button
               onClick={() => {
                 // addToCart();
-                submitBackend();
+                submitBackend('cart');
               }}
               className="w-full px-1.5"
               disabled={!isSelected}
@@ -284,7 +251,9 @@ const ProductSingleDetails = () => {
               <Button
                 variant="border"
                 onClick={() =>
-                  isAuthorized ? submitBackend() : openModal('LOGIN_VIEW')
+                  isAuthorized
+                    ? submitBackend('favourite')
+                    : openModal('LOGIN_VIEW')
                 }
                 className={`group hover:text-brand ${
                   isFavorite === true && 'text-brand'

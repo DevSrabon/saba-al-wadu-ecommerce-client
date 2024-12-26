@@ -104,42 +104,8 @@ export default function ProductPopup() {
   const item = generateCartItem(data, variation);
   const outOfStock = isInCart(item.id) && !isInStock(item.id);
   const isOutOfStock = available_stock > 0 && !outOfStock;
-  function addToCart() {
-    if (!isSelected) return;
-    // to show btn feedback while product carting
-    setAddToCartLoader(true);
-    setTimeout(() => {
-      setAddToCartLoader(false);
-    }, 1500);
-    addItemToCart(item, selectedQuantity);
-    // @ts-ignore
-    toast(t('text-added-bag'), {
-      progressClassName: 'fancy-progress-bar',
-      position: width! > 768 ? 'bottom-right' : 'top-right',
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  }
+
   const isFavorite = isProductWishlist(data.id);
-  function addToWishlist() {
-    handleWishlistClick(data);
-    const toastStatus: string =
-      isFavorite === true
-        ? t('text-remove-favorite')
-        : t('text-added-favorite');
-    toast(toastStatus, {
-      progressClassName: 'fancy-progress-bar',
-      position: width! > 768 ? 'bottom-right' : 'top-right',
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  }
 
   function navigateToProductPage() {
     closeModal();
@@ -152,7 +118,7 @@ export default function ProductPopup() {
 
   const { mutate, isLoading } = useAddCardOrFavorite();
 
-  const submitBackend = () => {
+  const submitBackend = (type: string) => {
     const cartData = {
       p_id: item.id,
       v_id: attributes.variant,
@@ -286,10 +252,11 @@ export default function ProductPopup() {
                   }
                 />
                 <Button
-                  onClick={() => {
-                    // addToCart();
-                    submitBackend();
-                  }}
+                  onClick={() =>
+                    isAuthorized
+                      ? submitBackend('cart')
+                      : openModal('LOGIN_VIEW')
+                  }
                   className="w-full px-1.5"
                   title={!isSelected ? 'Select product attribute' : ''}
                   disabled={!isSelected}
@@ -302,7 +269,9 @@ export default function ProductPopup() {
                   <Button
                     variant="border"
                     onClick={() =>
-                      isAuthorized ? submitBackend() : openModal('LOGIN_VIEW')
+                      isAuthorized
+                        ? submitBackend('favourite')
+                        : openModal('LOGIN_VIEW')
                     }
                     // loading={addToWishlistLoader}
                     className={`group hover:text-brand ${

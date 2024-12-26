@@ -6,29 +6,65 @@ import usePrice from '@framework/product/use-price';
 import { ROUTES } from '@utils/routes';
 import Counter from '@components/ui/counter';
 import { productImageLoader } from '@utils/image-loader';
+import { ICartProduct } from './types/cartTypes';
+import { useAddCardOrFavorite } from 'src/framework/addCardOrFavorite';
+import { Dispatch, SetStateAction } from 'react';
 
 type CartItemProps = {
-  item: any;
+  item: ICartProduct;
+  setCartProducts: Dispatch<SetStateAction<ICartProduct[]>>;
+  cartProducts: ICartProduct[];
 };
 
-const CartItem: React.FC<CartItemProps> = ({ item }) => {
+const CartItem: React.FC<CartItemProps> = ({
+  item,
+  setCartProducts,
+  cartProducts,
+}) => {
+  const { mutate, isLoading: submitLoading } = useAddCardOrFavorite();
   const { isInStock, addItemToCart, removeItemFromCart, clearItemFromCart } =
     useCart();
   const { price: totalPrice } = usePrice({
-    amount: item?.itemTotal,
+    amount: Number(item?.special_price),
     currencyCode: 'BDT',
   });
   const outOfStock = !isInStock(item.id);
+
+  const handelIncrement = () => {
+    console.log('fakjfagjf');
+
+    // const updatedCartProducts: ICartProduct[] = cartProducts?.map((product) =>
+    //   product.id === item?.id
+    //     ? { ...product, quantity: product.quantity + 1 }
+    //     : product
+    // );
+
+    // console.log(updatedCartProducts);
+
+    // setCartProducts(updatedCartProducts);
+  };
+  const handleDecrement = () => {
+    const updatedCartProducts: ICartProduct[] = cartProducts
+      ?.map((product) =>
+        product.id === item.id && product.quantity > 0
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      )
+      ?.filter((product) => product.quantity > 0);
+
+    setCartProducts(updatedCartProducts);
+  };
+
   return (
     <div
       className={`group w-full h-auto flex justify-start items-center text-brand-light py-4 md:py-7 border-b border-border-one border-opacity-70 relative last:border-b-0`}
-      title={item?.name}
+      title={item?.p_name_en}
     >
       <div className="relative flex rounded overflow-hidden shrink-0 cursor-pointer w-[90px] md:w-[100px] h-[90px] md:h-[100px]">
         <Image
           loader={productImageLoader}
-          src={item?.image ?? '/assets/placeholder/cart-item.svg'}
-          alt={item.name || 'Product Image'}
+          src={item?.p_name_en ?? '/assets/placeholder/cart-item.svg'}
+          alt={item.p_name_en || 'Product Image'}
           width={100}
           height={100}
           quality={100}
@@ -58,18 +94,18 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
       <div className="flex items-start justify-between w-full overflow-hidden">
         <div className="ltr:pl-3 md:ltr:pl-4">
           <Link
-            href={`${ROUTES.PRODUCT}/${item?.slug}`}
+            href={`${ROUTES.PRODUCT}/${item?.p_slug}`}
             className="block leading-5 transition-all text-brand-dark text-13px sm:text-sm lg:text-15px hover:text-brand"
           >
-            {item?.name}
+            {item?.p_name_en}
           </Link>
           <div className="text-13px sm:text-sm text-brand-muted mt-1.5 block mb-2">
-            {item.unit} X {item.quantity}
+            {item.quantity}
           </div>
           <Counter
             value={item.quantity}
-            onIncrement={() => addItemToCart(item, 1)}
-            onDecrement={() => removeItemFromCart(item.id)}
+            onIncrement={handelIncrement}
+            onDecrement={handleDecrement}
             variant="cart"
             disabled={outOfStock}
           />

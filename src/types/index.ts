@@ -169,11 +169,13 @@ export interface IProducts {
   available_stock: number;
   base_price: string;
   base_special_price: string;
+  all_images: string[];
   images: string[];
   colors: Color[];
   variants: Variant[];
   categories: Category[];
   p_images: Image[];
+  attribute: any;
 }
 
 export interface Category {

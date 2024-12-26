@@ -150,7 +150,7 @@ export default function ProductPopup() {
 
   console.log(item, selectedQuantity, attributes);
 
-  const { mutate, isLoading, formError } = useAddCardOrFavorite();
+  const { mutate, isLoading } = useAddCardOrFavorite();
 
   const submitBackend = () => {
     const cartData = {

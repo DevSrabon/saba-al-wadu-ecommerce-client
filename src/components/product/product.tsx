@@ -25,6 +25,7 @@ import { useProduct } from '@rest/product';
 import { useWishlist } from '@contexts/wishlist/wishlist.context';
 import { useUI } from '@contexts/ui.context';
 import { useModalAction } from '@components/common/modal/modal.context';
+import { useAddCardOrFavorite } from 'src/framework/addCardOrFavorite';
 
 const ProductSingleDetails = () => {
   const { t } = useTranslation('common');
@@ -60,7 +61,8 @@ const ProductSingleDetails = () => {
     setShareButtonStatus(!shareButtonStatus);
   };
   if (isLoading) return <p>Loading...</p>;
-  const variations = getVariations(attributes);
+  const variations = getVariations(product?.attribute);
+  const variation = Object.values(attributes).sort() as number[];
 
   const isSelected = !isEmpty(variations)
     ? !isEmpty(attributes) &&
@@ -78,7 +80,6 @@ const ProductSingleDetails = () => {
   //     )
   //   );
   // }
-  const variation = Object.values(attributes).sort() as number[];
 
   const item = generateCartItem(product, variation);
   const outOfStock = isInCart(item.id) && !isInStock(item.id);
@@ -121,14 +122,31 @@ const ProductSingleDetails = () => {
       draggable: true,
     });
   }
+  const { mutate, isLoading: submitLoading } = useAddCardOrFavorite();
 
+  const submitBackend = () => {
+    const cartData = {
+      p_id: product?.p_id,
+      v_id: attributes.variant,
+      p_color_id: attributes.color,
+      size_id: attributes.size,
+      quantity: selectedQuantity,
+      type: 'cart',
+    };
+
+    console.log({ cartData });
+
+    mutate(cartData);
+  };
+
+  // const submitLoading = false;
   return (
     <div className="pt-6 pb-2 md:pt-7">
       <div className="grid-cols-10 lg:grid gap-7 2xl:gap-8">
         <div className="col-span-5 mb-6 overflow-hidden xl:col-span-6 md:mb-8 lg:mb-0">
-          {product?.images?.length ? (
+          {product?.all_images?.length ? (
             <ThumbnailCarousel
-              gallery={product?.images}
+              gallery={product?.all_images}
               thumbnailClassName="xl:w-[700px] 2xl:w-[900px]"
               galleryClassName="xl:w-[150px] 2xl:w-[170px]"
             />
@@ -251,10 +269,13 @@ const ProductSingleDetails = () => {
               }
             />
             <Button
-              onClick={addToCart}
+              onClick={() => {
+                // addToCart();
+                submitBackend();
+              }}
               className="w-full px-1.5"
               disabled={!isSelected}
-              loading={addToCartLoader}
+              loading={submitLoading}
             >
               <CartIcon color="#ffffff" className="ltr:mr-3" />
               {t('Add to cart')}
@@ -263,7 +284,7 @@ const ProductSingleDetails = () => {
               <Button
                 variant="border"
                 onClick={() =>
-                  isAuthorized ? addToWishlist() : openModal('LOGIN_VIEW')
+                  isAuthorized ? submitBackend() : openModal('LOGIN_VIEW')
                 }
                 className={`group hover:text-brand ${
                   isFavorite === true && 'text-brand'

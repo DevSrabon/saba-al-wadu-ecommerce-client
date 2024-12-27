@@ -21,20 +21,21 @@ export default function Cart() {
   const { closeDrawer } = useUI();
 
   const { cartData, isLoading } = useCartProducts('cart');
-  const { items, total, isEmpty, resetCart } = useCart();
-  const { price: cartTotal } = usePrice({
-    amount: total,
-    currencyCode: 'BDT',
-  });
+  const { items, total, resetCart } = useCart();
 
   const [cartProducts, setCartProducts] = useState<ICartProduct[]>([]);
+
+  const totalAmount = cartProducts?.reduce(
+    (acc, item) => acc + item.quantity * Number(item.special_price),
+    0
+  );
   useEffect(() => {
     if (cartData?.length) {
       setCartProducts(cartData);
     }
   }, [cartData]);
 
-  console.log(cartProducts);
+  const isEmpty = !cartProducts?.length;
   return (
     <div className="flex flex-col justify-between w-full h-full">
       <div className="relative flex items-center justify-between w-full border-b ltr:pl-5 md:ltr:pl-7 border-border-base">
@@ -86,7 +87,7 @@ export default function Cart() {
             </Text>
           </div>
           <div className="shrink-0 font-semibold text-base md:text-lg text-brand-dark -mt-0.5 min-w-[80px] ltr:text-right">
-            {cartTotal}
+            {totalAmount.toFixed(2)}
           </div>
         </div>
         <div className="flex flex-col" onClick={closeDrawer}>

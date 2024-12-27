@@ -76,7 +76,7 @@ const Counter: React.FC<CounterProps> = ({
       </span>
       <button
         onClick={onIncrement}
-        disabled={disabled}
+        // disabled={disabled}
         className={cn(
           'group flex items-center justify-center h-full shrink-0 transition-all ease-in-out duration-300 focus:outline-none focus-visible:outline-none pr-2',
           {

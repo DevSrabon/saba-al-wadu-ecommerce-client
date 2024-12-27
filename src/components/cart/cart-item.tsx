@@ -24,35 +24,61 @@ const CartItem: React.FC<CartItemProps> = ({
   const { mutate, isLoading: submitLoading } = useAddCardOrFavorite();
   const { isInStock, addItemToCart, removeItemFromCart, clearItemFromCart } =
     useCart();
-  const { price: totalPrice } = usePrice({
-    amount: Number(item?.special_price),
-    currencyCode: 'BDT',
-  });
-  const outOfStock = !isInStock(item.id);
+  // const { price: totalPrice } = usePrice({
+  //   amount: Number(item?.special_price),
+  //   currencyCode: 'BDT',
+  // });
+  // const outOfStock = !isInStock(item.id);
 
+  console.log(item);
   const handelIncrement = () => {
     console.log('fakjfagjf');
 
-    // const updatedCartProducts: ICartProduct[] = cartProducts?.map((product) =>
-    //   product.id === item?.id
-    //     ? { ...product, quantity: product.quantity + 1 }
-    //     : product
-    // );
+    const updatedCartProducts: ICartProduct[] = cartProducts?.map((product) =>
+      product.id === item?.id
+        ? {
+            ...product,
+            quantity: product.quantity + 1,
+          }
+        : product
+    );
 
-    // console.log(updatedCartProducts);
-
-    // setCartProducts(updatedCartProducts);
+    setCartProducts(updatedCartProducts);
+    const cartData = {
+      p_id: item.id,
+      v_id: item.v_id,
+      p_color_id: item.p_color_id,
+      size_id: item.size,
+      quantity: item.quantity,
+      mode: 'increment',
+      type: 'cart',
+    };
+    mutate(cartData);
   };
   const handleDecrement = () => {
     const updatedCartProducts: ICartProduct[] = cartProducts
       ?.map((product) =>
         product.id === item.id && product.quantity > 0
-          ? { ...product, quantity: product.quantity - 1 }
+          ? {
+              ...product,
+              quantity: product.quantity - 1,
+            }
           : product
       )
       ?.filter((product) => product.quantity > 0);
 
+   
     setCartProducts(updatedCartProducts);
+    const cartData = {
+      p_id: item.id,
+      v_id: item.v_id,
+      p_color_id: item.p_color_id,
+      size_id: item.size,
+      quantity: item.quantity,
+      mode: 'decrement',
+      type: 'cart',
+    };
+    mutate(cartData);
   };
 
   return (
@@ -107,12 +133,12 @@ const CartItem: React.FC<CartItemProps> = ({
             onIncrement={handelIncrement}
             onDecrement={handleDecrement}
             variant="cart"
-            disabled={outOfStock}
+            disabled={false}
           />
         </div>
 
         <div className="flex font-semibold text-sm md:text-base text-brand-dark leading-5 shrink-0 min-w-[65px] md:min-w-[80px] justify-end">
-          {totalPrice}
+          {(item?.quantity * Number(item?.special_price)).toFixed(2)}
         </div>
       </div>
     </div>

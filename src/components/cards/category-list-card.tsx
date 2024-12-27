@@ -13,7 +13,6 @@ interface Props {
 }
 
 const CategoryListCard: React.FC<Props> = ({ category, className, href }) => {
-  console.log(category);
   const { cate_name_en, cate_image } = category;
   const { t } = useTranslation('common');
   return (

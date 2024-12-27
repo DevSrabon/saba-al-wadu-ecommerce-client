@@ -32,7 +32,6 @@ const ProductsGridBlock: React.FC<ProductsProps> = ({
   uniqueKey,
   variant = 'alpine',
 }) => {
-  console.log({ products });
   return (
     <div className={`${className}`}>
       <SectionHeader

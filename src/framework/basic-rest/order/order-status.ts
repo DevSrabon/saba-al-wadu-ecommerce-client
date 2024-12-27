@@ -1,4 +1,4 @@
-import http from '@framework/utils/http';
+import { http } from '@framework/utils/http';
 import { API_ENDPOINTS } from '@rest/client/api-endpoints';
 import { useQuery } from 'react-query';
 

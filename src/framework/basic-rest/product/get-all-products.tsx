@@ -1,6 +1,6 @@
 import { QueryOptionsType, Product } from '@framework/types';
+import { http } from '@framework/utils/http';
 import { API_ENDPOINTS } from '@rest/client/api-endpoints';
-import http from '@framework/utils/http';
 import shuffle from 'lodash/shuffle';
 import { useInfiniteQuery } from 'react-query';
 type PaginatedProduct = {

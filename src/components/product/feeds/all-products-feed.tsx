@@ -65,7 +65,7 @@ const AllProductFeed: FC<ProductFeedProps> = ({ element, className = '' }) => {
                   <Fragment key={index}>
                     {page?.data?.slice(0, 18)?.map((product: IProducts) => (
                       <ProductCardAlpine
-                        key={`product--key${product.id}`}
+                        key={`product--key${product.p_id}`}
                         product={product}
                       />
                     ))}

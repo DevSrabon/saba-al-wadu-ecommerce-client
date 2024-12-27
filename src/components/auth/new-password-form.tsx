@@ -37,7 +37,6 @@ const NewPasswordForm = () => {
   } = useForm<FormValues>({
     defaultValues,
   });
-  console.log(data);
 
   function handleSignIn() {
     return openModal('LOGIN_VIEW');

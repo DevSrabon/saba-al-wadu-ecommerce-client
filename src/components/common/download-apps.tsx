@@ -37,13 +37,13 @@ const DownloadApps: React.FC<Props> = ({ className = 'pt-1.5 md:pt-0' }) => {
             </p>
             <div className="flex justify-center md:justify-start -mx-1 md:-mx-1.5 pt-0.5 px-7 sm:px-0">
               {appButtons?.map((item) => (
-                <a
-                  key={item.id}
-                  href={item.slug}
-                  className="inline-flex transition duration-200 ease-in hover:box-shadow hover:opacity-80 mx-1 md:mx-1.5"
-                  rel="referrer"
-                  target="_blank"
-                >
+                // <a
+                //   key={item.id}
+                //   href={item.slug}
+                //   className="inline-flex transition duration-200 ease-in hover:box-shadow hover:opacity-80 mx-1 md:mx-1.5"
+                //   rel="referrer"
+                //   target="_blank"
+                // >
                   <Image
                     src={item.appButton}
                     alt={t(item.altText)}
@@ -53,7 +53,7 @@ const DownloadApps: React.FC<Props> = ({ className = 'pt-1.5 md:pt-0' }) => {
                     // style={{ width: 'auto' }}
                     priority
                   />
-                </a>
+                // </a>
               ))}
             </div>
           </div>

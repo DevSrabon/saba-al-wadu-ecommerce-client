@@ -1,14 +1,13 @@
-import Link from '@components/ui/link';
-import Image from '@components/ui/image';
-import { IoIosCloseCircle } from 'react-icons/io';
-import { useCart } from '@contexts/cart/cart.context';
-import usePrice from '@framework/product/use-price';
-import { ROUTES } from '@utils/routes';
 import Counter from '@components/ui/counter';
+import Image from '@components/ui/image';
+import Link from '@components/ui/link';
+import { useCart } from '@contexts/cart/cart.context';
 import { productImageLoader } from '@utils/image-loader';
-import { ICartProduct } from './types/cartTypes';
-import { useAddCardOrFavorite } from 'src/framework/addCardOrFavorite';
+import { ROUTES } from '@utils/routes';
 import { Dispatch, SetStateAction } from 'react';
+import { IoIosCloseCircle } from 'react-icons/io';
+import { useAddCardOrFavorite } from 'src/framework/addCardOrFavorite';
+import { ICartProduct } from './types/cartTypes';
 
 type CartItemProps = {
   item: ICartProduct;
@@ -22,18 +21,14 @@ const CartItem: React.FC<CartItemProps> = ({
   cartProducts,
 }) => {
   const { mutate, isLoading: submitLoading } = useAddCardOrFavorite();
-  const { isInStock, addItemToCart, removeItemFromCart, clearItemFromCart } =
-    useCart();
+  const { clearItemFromCart } = useCart();
   // const { price: totalPrice } = usePrice({
   //   amount: Number(item?.special_price),
   //   currencyCode: 'BDT',
   // });
   // const outOfStock = !isInStock(item.id);
 
-  console.log(item);
   const handelIncrement = () => {
-    console.log('fakjfagjf');
-
     const updatedCartProducts: ICartProduct[] = cartProducts?.map((product) =>
       product.id === item?.id
         ? {
@@ -67,7 +62,6 @@ const CartItem: React.FC<CartItemProps> = ({
       )
       ?.filter((product) => product.quantity > 0);
 
-   
     setCartProducts(updatedCartProducts);
     const cartData = {
       p_id: item.id,

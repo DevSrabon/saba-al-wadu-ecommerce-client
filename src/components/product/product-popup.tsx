@@ -114,8 +114,6 @@ export default function ProductPopup() {
 
   useEffect(() => setSelectedQuantity(1), [data.id]);
 
-  console.log(item, selectedQuantity, attributes);
-
   const { mutate, isLoading } = useAddCardOrFavorite();
 
   const submitBackend = (type: string) => {
@@ -127,8 +125,6 @@ export default function ProductPopup() {
       quantity: selectedQuantity,
       type: 'cart',
     };
-
-    console.log({ cartData });
 
     mutate(cartData);
   };

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Button from '@components/ui/button';
 import Counter from '@components/ui/counter';
@@ -35,7 +34,7 @@ const ProductSingleDetails = () => {
   } = router;
   const { width } = useWindowSize();
   const { product, isLoading } = useProduct({ slug: slug as string });
-    const { mutate, isLoading: submitLoading } = useAddCardOrFavorite();
+  const { mutate, isLoading: submitLoading } = useAddCardOrFavorite();
   // const { data, isLoading } = useProductQuery(slug as string);
   const { addItemToCart, isInCart, getItemFromCart, isInStock, items } =
     useCart();
@@ -89,8 +88,6 @@ const ProductSingleDetails = () => {
 
   const isFavorite = isProductWishlist(product.p_id);
 
-
-
   const submitBackend = (type: string) => {
     const cartData = {
       p_id: product?.p_id,
@@ -100,8 +97,6 @@ const ProductSingleDetails = () => {
       quantity: selectedQuantity,
       type: type,
     };
-
-    console.log({ cartData });
 
     mutate(cartData);
   };

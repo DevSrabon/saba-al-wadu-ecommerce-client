@@ -19,16 +19,18 @@ interface ProductProps {
 const WishlistProductCard: FC<ProductProps> = ({ product, className }) => {
   const { t } = useTranslation('common');
   const { isProductWishlist, handleWishlistClick } = useWishlist();
-  const { name, images, unit, slug } = product ?? {};
+  const { p_name_en, images, p_slug } = product ?? {};
   const placeholderImage = `/assets/placeholder/product.svg`;
   const { price, basePrice, discount } = usePrice({
-    amount: product.sale_price ? product.sale_price : product.price,
-    baseAmount: product.price,
+    amount: product.base_price
+      ? Number(product.base_price)
+      : Number(product.base_special_price),
+    baseAmount: Number(product.base_price),
     currencyCode: 'BDT',
   });
   const { width } = useWindowSize();
-  const isFavorite = isProductWishlist(product.id);
-  console.log(isFavorite);
+  const isFavorite = isProductWishlist(product.p_id);
+
   function addToWishlist() {
     handleWishlistClick(product);
     const toastStatus: string =
@@ -48,13 +50,13 @@ const WishlistProductCard: FC<ProductProps> = ({ product, className }) => {
 
   return (
     <div className="flex flex-col py-4 border-b md:flex-row border-border-base 2xl:py-5 wishlist-card last:pb-0 first:-mt-8 lg:first:-mt-4 2xl:first:-mt-7">
-      <Link href={`/products/${slug}`} className="flex ">
+      <Link href={`/products/${p_slug}`} className="flex ">
         <div className="relative mt-1 shrink-0">
           <div className="flex overflow-hidden max-w-[80px]  transition duration-200 ease-in-out transform group-hover:scale-105">
             <Image
               loader={productImageLoader}
-              src={images[0]?.image_name! || placeholderImage}
-              alt={name || 'Product Image'}
+              src={images[0] || placeholderImage}
+              alt={p_name_en || 'Product Image'}
               width={80}
               height={80}
               quality={100}
@@ -66,9 +68,8 @@ const WishlistProductCard: FC<ProductProps> = ({ product, className }) => {
 
         <div className="flex flex-col ltr:ml-2 rtl:mr-2 2xl:ltr:ml-3.5 2xl:rtl:mr-3.5 h-full">
           <h2 className="text-brand-dark text-13px sm:text-sm lg:text-15px leading-5 sm:leading-6 mb-1.5">
-            {name}
+            {p_name_en}
           </h2>
-          <div className="mb-1 text-13px sm:text-sm lg:mb-2">{unit}</div>
           <div className="-mx-1">
             <span className="inline-block mx-1 text-sm font-semibold sm:text-15px lg:text-base text-brand-dark">
               {price}

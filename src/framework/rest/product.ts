@@ -4,10 +4,9 @@ import {
   IProducts,
   IProductsQueryKeys,
   ISingleProductResponseType,
-  ISingleProductType,
 } from 'src/types';
-import { API_ENDPOINTS } from './client/api-endpoints';
 import client from './client';
+import { API_ENDPOINTS } from './client/api-endpoints';
 
 export const fetchPopularProducts = ({
   queryKey,

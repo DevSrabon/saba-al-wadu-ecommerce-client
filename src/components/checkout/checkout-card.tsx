@@ -14,34 +14,31 @@ import FormAlert from '@components/ui/form-alert';
 import { useToken } from 'src/lib/hooks/use-token';
 import { useUI } from '@contexts/ui.context';
 import { useEffect, useState } from 'react';
+import { useCartProducts } from '@components/cart/api/cartApiEndpoints';
 
 const CheckoutCard: React.FC = () => {
   const { t } = useTranslation('common');
   const { isAuthorized } = useUI();
-  const { items, total, isEmpty, addressItem } = useCart();
+  const { total, addressItem } = useCart();
+  const { cartData } = useCartProducts('cart');
   const { mutate, isLoading, formError, setFormError } = useCreateOrder();
-  const { price: subtotal } = usePrice({
-    amount: total,
-    currencyCode: 'BDT',
-  });
+
   const deliveryCharge = addressItem.province_id !== 6 ? 120 : 80;
   const { price: finalTotal } = usePrice({
     amount: total + deliveryCharge,
     currencyCode: 'BDT',
   });
   function orderHeader() {
-    const products: IOrderProducts[] = [];
-    if (!isEmpty) {
-      for (let index = 0; index < items.length; index++) {
-        products.push({
-          id: Number(items[index]?.id),
-          quantity: items[index].quantity!,
-        });
-      }
-    }
+    const products = cartData?.map((item) => ({
+      id: item?.id,
+      quantity: item?.quantity,
+      v_id: item?.v_id,
+      p_color_id: item?.p_color_id,
+      size_id: item?.size_id,
+    }));
     const body: IOrderType = {
       address_id: addressItem.id,
-      delivery_charge: deliveryCharge,
+      coupon: 0,
       products: products,
     };
 
@@ -49,11 +46,15 @@ const CheckoutCard: React.FC = () => {
     // !isEmpty && Router.push(ROUTES.ORDER);
   }
 
+  const totalAmount = cartData?.reduce(
+    (acc, item) => acc + item.quantity * Number(item.special_price),
+    0
+  );
   const checkoutFooter = [
     {
       id: 1,
       name: t('text-sub-total'),
-      price: subtotal,
+      price: totalAmount,
     },
     {
       id: 2,
@@ -80,6 +81,8 @@ const CheckoutCard: React.FC = () => {
   //   return null;
   // }
 
+  const isEmpty = !cartData?.length;
+  console.log(cartData);
   return (
     <>
       <div className="px-4 py-1 border rounded-md border-border-base text-brand-light xl:py-6 xl:px-7">
@@ -92,7 +95,7 @@ const CheckoutCard: React.FC = () => {
           </span>
         </div>
         {!isEmpty ? (
-          items.map((item) => <CheckoutItem item={item} key={item.id} />)
+          cartData.map((item) => <CheckoutItem item={item} key={item.id} />)
         ) : (
           <p className="py-4 text-brand-danger text-opacity-70">
             {t('text-empty-cart')}

@@ -3,6 +3,7 @@ import { useCart } from '@contexts/cart/cart.context';
 import { useUI } from '@contexts/ui.context';
 import { useTranslation } from 'next-i18next';
 import cn from 'classnames';
+import { useCartProducts } from './api/cartApiEndpoints';
 
 type CartButtonProps = {
   className?: string;
@@ -25,6 +26,7 @@ const CartButton: React.FC<CartButtonProps> = ({
     // isShowing;
     return openDrawer();
   }
+  const { cartData } = useCartProducts('cart');
 
   return (
     <button
@@ -38,7 +40,7 @@ const CartButton: React.FC<CartButtonProps> = ({
       <div className="relative flex items-center">
         <CartIcon className={cn(iconClassName)} />
         <span className="min-w-[20px] min-h-[20px] p-0.5 rounded-[20px] flex items-center justify-center bg-brand-yellow text-brand-dark absolute -top-2.5 ltr:left-2.5 text-10px font-bold">
-          {totalItems}
+          {cartData?.length}
         </span>
       </div>
       {!hideLabel && (

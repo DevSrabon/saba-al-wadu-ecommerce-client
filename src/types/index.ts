@@ -257,7 +257,7 @@ export interface IOrderProducts {
 
 export interface IOrderType {
   address_id: number;
-  delivery_charge: number;
+  coupon: number;
   products: IOrderProducts[];
 }
 export interface IOrderResponseType extends IResponse {

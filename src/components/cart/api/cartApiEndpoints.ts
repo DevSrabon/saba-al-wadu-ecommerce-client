@@ -8,8 +8,9 @@ const getCartData = (type: string) => () =>
 
 export function useCartProducts(type: string) {
   const { data, isLoading, error } = useQuery<ICartResponse, Error>(
-    [type],
-    getCartData(type)
+    [API_ENDPOINTS.CARTORFAVORITE, type],
+    getCartData(type),
+    { refetchOnWindowFocus: false }
   );
 
   return {

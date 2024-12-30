@@ -1,24 +1,26 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import Router from 'next/router';
-
-// Utility to get the token
-const getToken = () => {
-  return Cookies.get('auth_token') || ''; // Fetch token from cookies or return an empty string
-};
+import { useToken } from 'src/lib/hooks/use-token';
 
 const http = axios.create({
   baseURL: process.env.NEXT_PUBLIC_REST_API_ENDPOINT,
-  timeout: 3000,
+  timeout: 30000,
+  // headers: {
+  //   Accept: 'application/json',
+  //   'Content-Type': 'application/json',
+  // },
 });
 
-// Request interceptor
+// Change request data/error here
 http.interceptors.request.use(
   (config) => {
-    const token = getToken(); // Use the token utility
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+    const token = useToken().getToken();
+    // config.headers.Authorization = {
+    //   ...config.headers,
+    //   Authorization: `Bearer ${token ? token : ''}`,
+    // };
+    config.headers.Authorization = `Bearer ${token ? token : ''}`;
     return config;
   },
   (error) => {
@@ -26,19 +28,20 @@ http.interceptors.request.use(
   }
 );
 
-// Response interceptor
+// Change response data/error here
 http.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error({ error });
-
+    console.log({ error });
     if (
-      error.response &&
-      (error.response.status === 401 || error.response.status === 403)
+      (error.response && error.response.status === 401) ||
+      (error.response && error.response.status === 403) ||
+      (error.response &&
+        error.response.data.message === 'Unauthorized request!')
     ) {
-      Cookies.remove('auth_token'); 
+      Cookies.remove('auth_token');
+      Router.reload();
     }
-
     return Promise.reject(error);
   }
 );
@@ -58,7 +61,6 @@ export class HttpClient {
     const response = await http.put<T>(url, data);
     return response.data;
   }
-
   static async patch<T>(url: string, data: unknown) {
     const response = await http.patch<T>(url, data);
     return response.data;
@@ -68,4 +70,15 @@ export class HttpClient {
     const response = await http.delete<T>(url);
     return response.data;
   }
+
+  // static formatSearchParams(params: Partial<SearchParamOptions>) {
+  //   return Object.entries(params)
+  //     .filter(([, value]) => Boolean(value))
+  //     .map(([k, v]) =>
+  //       ['type', 'categories', 'tags', 'author', 'manufacturer'].includes(k)
+  //         ? `${k}.slug:${v}`
+  //         : `${k}:${v}`
+  //     )
+  //     .join(';');
+  // }
 }

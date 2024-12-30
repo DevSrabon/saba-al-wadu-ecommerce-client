@@ -28,6 +28,7 @@ const CheckoutCard: React.FC = () => {
     amount: total + deliveryCharge,
     currencyCode: 'BDT',
   });
+
   function orderHeader() {
     const products = cartData?.map((item) => ({
       id: item?.id,

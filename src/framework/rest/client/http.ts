@@ -1,6 +1,5 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import Router from 'next/router';
 import { useToken } from 'src/lib/hooks/use-token';
 
 const http = axios.create({
@@ -69,15 +68,4 @@ export class HttpClient {
     const response = await http.delete<T>(url);
     return response.data;
   }
-
-  // static formatSearchParams(params: Partial<SearchParamOptions>) {
-  //   return Object.entries(params)
-  //     .filter(([, value]) => Boolean(value))
-  //     .map(([k, v]) =>
-  //       ['type', 'categories', 'tags', 'author', 'manufacturer'].includes(k)
-  //         ? `${k}.slug:${v}`
-  //         : `${k}:${v}`
-  //     )
-  //     .join(';');
-  // }
 }

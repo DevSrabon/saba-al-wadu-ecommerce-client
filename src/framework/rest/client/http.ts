@@ -5,7 +5,7 @@ import { useToken } from 'src/lib/hooks/use-token';
 
 const http = axios.create({
   baseURL: process.env.NEXT_PUBLIC_REST_API_ENDPOINT,
-  timeout: 30000,
+  timeout: 3000,
   // headers: {
   //   Accept: 'application/json',
   //   'Content-Type': 'application/json',
@@ -40,7 +40,6 @@ http.interceptors.response.use(
         error.response.data.message === 'Unauthorized request!')
     ) {
       Cookies.remove('auth_token');
-      Router.reload();
     }
     return Promise.reject(error);
   }

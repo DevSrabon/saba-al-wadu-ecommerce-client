@@ -29,17 +29,12 @@ const CheckoutCard: React.FC = () => {
     currencyCode: 'BDT',
   });
   function orderHeader() {
-    const products = cartData?.map((item) => ({
-      id: item?.id,
-      quantity: item?.quantity,
-      v_id: item?.v_id,
-      p_color_id: item?.p_color_id,
-      size_id: item?.size_id,
-    }));
+    const products = cartData?.map((item) => item?.id);
+
     const body: IOrderType = {
       address_id: addressItem.id,
       coupon: 0,
-      products: products,
+      cart_ids: products,
     };
 
     mutate(body);

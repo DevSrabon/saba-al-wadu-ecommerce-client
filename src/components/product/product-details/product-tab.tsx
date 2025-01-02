@@ -38,9 +38,10 @@ export default function ProductDetailsTab({ product }: { product: IProducts }) {
         </Tab.List>
         <Tab.Panels className="mt-6 lg:mt-9">
           <Tab.Panel className="lg:flex">
-            <div className="lg:w-3/5 text-sm sm:text-15px text-brand-muted leading-[2em] space-y-4 lg:space-y-5 xl:space-y-7">
+            {/* <div className="lg:w-3/5 text-sm sm:text-15px text-brand-muted leading-[2em] space-y-4 lg:space-y-5 xl:space-y-7">
               <p>{product.p_details_en}</p>
-            </div>
+            </div> */}
+            <div dangerouslySetInnerHTML={{ __html: product.p_details_en }}></div>
             {/* <div className="shrink-0 lg:w-2/5 lg:ltr:pl-10 lg:rtl:pr-10 xl:ltr:pl-14 xl:rtl:pr-14 2xl:ltr:pl-20 2xl:rtl:pr-20 pt-5 lg:pt-0">
               <Heading
                 variant="mediumHeading"
